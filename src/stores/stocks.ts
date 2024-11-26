@@ -9,7 +9,7 @@ type StockState = {
 
 type StockGetters = {
   getStocks: () => void;
-  getStockById: () => (symbol:string) => void
+  getStockById: () => (symbol:string) => Stock | null
 };
 
 type StockActions = {

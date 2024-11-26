@@ -1,0 +1,15 @@
+.closed {
+  opacity: 0.6;
+}
+
+section {
+  margin: 20px;
+}
+
+h1,h2,h3 {
+  margin-top: 10px;
+}
+
+h4 {
+  margin: 15px 0;
+}

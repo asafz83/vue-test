@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import {Stock} from '@models/Stock';
-  import PercentageChange from '@components/PercentageChange.vue';
-  import MarketStatus from '@components/MarketStatus.vue';
+  import PercentageChange from '@components/PercentageChange/PercentageChange.vue';
+  import MarketStatus from '@components/MarketStatus/MarketStatus.vue';
 
   defineProps<{
     stock: Stock
@@ -23,26 +23,5 @@
 </template>
 
 <style scoped>
-  a {
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  a:hover {
-    background-color: aliceblue;
-  }
-
-  .flex {
-    display: flex;
-    justify-content: space-between;
-  }
-  .flex div {
-    flex: 1;
-  }
-
-  .flex-end {
-    display: flex;
-    justify-content: flex-end;
-  }
+@import './StockListItem.css';
 </style>

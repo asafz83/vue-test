@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import {HOME_NAME, HOME_PATH, STOCK_ITEM, STOCK_PATH} from './name';
-import Home from '@pages/home/index.vue';
+import Home from '@pages/home/Home.vue';
 import StockItem from '@pages/stock-item/stockItem.vue';
 
 const routes: RouteRecordRaw[] = [

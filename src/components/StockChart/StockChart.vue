@@ -5,12 +5,13 @@
 import * as d3 from 'd3';
 import {Stock} from '@models/Stock';
 import {onMounted} from 'vue';
+import {createSVG, drawLine} from '@utils/chartUtils';
 
 
 const props = defineProps<{
   stock: Stock
 }>();
-
+// TODO: This section needs much more refactor...
 const width = 928;
 const height = 500;
 const marginTop = 20;
@@ -39,11 +40,7 @@ onMounted(() => {
     .y(d => y(d.price));
 
 // Create the SVG container.
-  const svg = d3.select('svg')
-    .attr('width', width)
-    .attr('height', height)
-    .attr('viewBox', [0, 0, width, height])
-    .attr('style', 'max-width: 100%; height: auto; height: intrinsic;');
+  const svg = createSVG({d3, width, height, selector: 'svg'});
 
 // Add the x-axis.
   svg.append('g')
@@ -72,21 +69,28 @@ onMounted(() => {
     .attr('stroke-width', 1.5)
     .attr('d', line(data));
 
+  drawLine({
+    svg,
+    width: 1.5,
+    color: 'green',
+    dashArray: 10,
+    x1: x(x.domain()[0]),
+    y1: y(props.stock.high),
+    x2: x(x.domain()[1]),
+    y2: y(props.stock.high)
+  });
 
-  svg.append( "path" )
-    .attr('fill', 'none')
-    .attr('stroke', 'green')
-    .attr('stroke-width', 1.5)
-    .attr('stroke-dasharray', 10)
-    .attr('d', `M ${x(x.domain()[0])} ${y(props.stock.high)} L ${x(x.domain()[1])} ${y(props.stock.high)}`);
-  svg.append( "path" )
-    .attr('fill', 'none')
-    .attr('stroke', 'red')
-    .attr('stroke-width', 1.5)
-    .attr('stroke-dasharray', 10)
-    .attr('d', `M ${x(x.domain()[0])} ${y(props.stock.low)} L ${x(x.domain()[1])} ${y(props.stock.low)}`);
+  drawLine({
+    svg,
+    width: 1.5,
+    color: 'red',
+    dashArray: 10,
+    x1: x(x.domain()[0]),
+    y1: y(props.stock.low),
+    x2: x(x.domain()[1]),
+    y2: y(props.stock.low)
+  });
 });
-
 
 
 </script>

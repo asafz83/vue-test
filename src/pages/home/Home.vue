@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useStocksState} from '@stores';
 import {storeToRefs} from 'pinia';
-import StockList from '@components/StockList.vue';
+import StockList from '@components/StockList/StockList.vue';
 
 defineOptions({
   name: 'HomeComponent',
@@ -21,5 +21,5 @@ const {stocks} = storeToRefs(stocksState);
 </template>
 
 <style scoped>
-@import './index.css';
+@import 'Home.css';
 </style>

@@ -13,12 +13,5 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.green {
-  color: green;
-}
-
-.red {
-  color: red;
-}
-
+@import "./PercentageChange.css";
 </style>

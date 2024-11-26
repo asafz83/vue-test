@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import {Stock} from '@models/Stock';
-import StockListItem from '@components/StockListItem.vue';
+import StockListItem from '@components/StockListItem/StockListItem.vue';
 
 const props = defineProps<{
   stocks: Stock[]
@@ -17,9 +17,5 @@ const props = defineProps<{
 </template>
 
 <style scoped>
- li {
-    list-style-type: none;
-    margin: 10px;
-    border: 1px solid black;
-  }
+@import './StockList.css';
  </style>
