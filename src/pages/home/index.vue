@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import {useCountState, storeToRefs} from '@stores';
-import {DemoButton} from '@components';
+import {useStocksState} from '@stores';
+import {storeToRefs} from 'pinia';
+import StockList from '@components/StockList.vue';
 
 defineOptions({
   name: 'HomeComponent',
 });
 
-const countState = useCountState();
-const {count, doubleCount} = storeToRefs(countState);
+const stocksState = useStocksState();
+const {stocks} = storeToRefs(stocksState);
+
+
 </script>
 
 <template>
   <main>
-    <img src="@assets/images/logo.png" />
-    <h1 id="count">count is {{ count }}</h1>
-    <h2 id="double_count">double count is {{ doubleCount }}</h2>
-    <div class="btn-group">
-      <DemoButton id="inc_btn" @click="countState.increment">inc</DemoButton>
-      <DemoButton id="dec_btn" @click="countState.reduce">dec</DemoButton>
-    </div>
+    <h1>Stock Trader</h1>
+    <StockList :stocks="stocks" />
   </main>
 </template>
 

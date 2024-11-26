@@ -1,17 +1,4 @@
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #eee;
 
-  & img {
-    width: 100px;
-    margin-bottom: 80px;
-    animation: heart 3s ease-in-out infinite;
-  }
-}
 
 p {
   text-align: center;
