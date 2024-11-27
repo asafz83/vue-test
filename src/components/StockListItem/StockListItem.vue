@@ -10,7 +10,7 @@
 
 <template>
 
-  <RouterLink :to="stock.symbol">
+  <RouterLink :to="'symbol/' + stock.symbol">
     <div class="flex">
       <div>
         {{ stock.symbol }} - {{ stock.currentPrice }}

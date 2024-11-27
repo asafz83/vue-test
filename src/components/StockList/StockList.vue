@@ -14,6 +14,7 @@ const props = defineProps<{
   <li v-for="stock in props.stocks" :key="stock.symbol">
     <StockListItem :stock="stock" />
   </li>
+<!--  <RouterLink to="/symbol/GOOGL2">Wrong</RouterLink>-->
 </template>
 
 <style scoped>

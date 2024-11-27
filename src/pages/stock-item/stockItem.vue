@@ -1,6 +1,6 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
-import {useRoute} from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 import {useStocksState} from '@stores';
 import {storeToRefs} from 'pinia';
 import StockDetails from '@components/StockDetails/StockDetails.vue';
@@ -14,11 +14,17 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+
+
 const stocksState = useStocksState();
 const {getStockById} = storeToRefs(stocksState);
 
 const route = useRoute();
 const stock: Stock | null = getStockById.value(route.params.id);
+if (!stock) {
+  const router = useRouter();
+  router.push('/error');
+}
 
 </script>
 
@@ -26,7 +32,7 @@ const stock: Stock | null = getStockById.value(route.params.id);
   <RouterLink to="/">
     &lt;- Back to List
   </RouterLink>
-  <StockDetails :stock="stock" />
+  <StockDetails v-if="!!stock" :stock="stock" />
 
 </template>
 
