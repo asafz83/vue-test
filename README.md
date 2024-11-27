@@ -17,6 +17,8 @@ Simple Application to view Stocks quotes
 
 - Unit test or integration test `pnpm test`
 
+## Technical overview
+[See this page](./Technical.md 'Link title')
 
 ## ✨Packages
 
